@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let data = {
+            "Fish": {
+                "trout": {},
+                "salmon": {}
+            },
+
+            "Tree": {
+                "Huge": {
+                    "sequoia": {},
+                    "oak": {}
+                },
+                "Flowering": {
+                    "apple tree": {},
+                    "magnolia": {}
+                }
+            }
+        };
+        let ul = document.createElement('ul')
+        //datai meji keyernem sarqe sranov
+        for (let key in data) {
+            let li = document.createElement('li')
+            li.textContent = key
+
+        //datai meji keyeri meji liern em sarqe sranov
+
+            let itemData = data[key];
+            if (Object.keys(itemData).length > 0) {
+                let ul1 = document.createElement('ul');
+                for (let itemKey in itemData) {
+                    const li1 = document.createElement('li');
+                    li1.textContent = itemKey
+                    ul1.appendChild(li1)
+
+        //datai meji keyeri meji lieri meji liern  em sarqe sranov
+
+                    let itemData2 = itemData[itemKey]
+                    if (Object.keys(Object.keys(itemData2)).length > 0) {
+                        let ul2 = document.createElement('ul');
+                        for (let itemKey2 in itemData2) {
+                            const li2 = document.createElement('li');
+                            li2.textContent = itemKey2
+                            ul2.appendChild(li2)
+                        }
+                        li1.appendChild(ul2)
+                    }
+
+                }
+                li.appendChild(ul1)
+            }
+            ul.appendChild(li)
+
+        }
+        document.body.appendChild(ul)
+
+
+
+
+
+    </script>
+</body>
+
+</html>
